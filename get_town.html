@@ -5,17 +5,17 @@
 </head>
 <script type="text/javascript"></script>
 <body>
-<?php
-require_once("dbconfig.php");
+<?html
+require_once("dbconfig.html");
 	$query ="SELECT * FROM clinic WHERE City = '" . $_POST["countryid"] . "'";
 	$results = $conn->query($query);
 ?>
 	<option value="">Select Town</option>
-<?php
+<?html
 	while($rs=$results->fetch_assoc()) {
 ?>
-	<option value="<?php echo $rs["town"];?>"><?php echo $rs["town"]; ?></option>
-<?php
+	<option value="<?html echo $rs["town"];?>"><?html echo $rs["town"]; ?></option>
+<?html
 
 }
 ?>
