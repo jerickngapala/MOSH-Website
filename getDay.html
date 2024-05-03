@@ -6,7 +6,7 @@
 </head>
 <script type="text/javascript">//alert("sdfsd");</script>
 <body>
-<?php
+<?html
 	$string = $_POST["date"];
 	$timestamp = strtotime($string);
 	$compareday = date("l", $timestamp);
@@ -15,7 +15,7 @@
 		echo "SELECT CID AND DID PROPERLY!!!";
 	else
 	{
-	require_once("dbconfig.php");
+	require_once("dbconfig.html");
 	$query ="SELECT * FROM doctor_availability WHERE DID = '" . $_POST["didval"] . "' AND CID='".$_POST["cidval"]."'";
 	$results = $conn->query($query);
 	while($rs=$results->fetch_assoc())
