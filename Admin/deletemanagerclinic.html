@@ -6,7 +6,7 @@
 function getState(val) {
 	$.ajax({
 	type: "POST",
-	url: "getclinic.php",
+	url: "getclinic.html",
 	data:'city='+val,
 	success: function(data){
 		$("#clinic-list").html(data);
@@ -16,7 +16,7 @@ function getState(val) {
 function getManager(val) {
 	$.ajax({
 	type: "POST",
-	url: "getmanager.php",
+	url: "getmanager.html",
 	data:'cid='+val,
 	success: function(data){
 		$("#manager-list").html(data);
@@ -34,35 +34,35 @@ function getManager(val) {
   <li class="dropdown">    
   <a href="javascript:void(0)" class="dropbtn">Doctor</a>
     <div class="dropdown-content">
-      <a href="adddoctor.php">Add Doctor</a>
-      <a href="deletedoctor.php">Delete Doctor</a>
-      <a href="showdoctor.php">Show Doctor</a>
-	  <a href="showdoctorschedule.php">Show Doctor Schedule</a>
+      <a href="adddoctor.html">Add Doctor</a>
+      <a href="deletedoctor.html">Delete Doctor</a>
+      <a href="showdoctor.html">Show Doctor</a>
+	  <a href="showdoctorschedule.html">Show Doctor Schedule</a>
     </div>
   </li>
   
   <li class="dropdown">
   <a href="javascript:void(0)" class="dropbtn">Clinic</a>
     <div class="dropdown-content">
-      <a href="addclinic.php">Add Clinic</a>
-      <a href="deleteclinic.php">Delete Clinic</a>
-      <a href="adddoctorclinic.php">Assign Doctor to Clinic</a>
-	  <a href="addmanagerclinic.php">Assign Manager to Clinic</a>
-	  <a href="deletedoctorclinic.php">Delete Doctor from Clinic</a>
-	  <a href="deletemanagerclinic.php">Delete Manager from Clinic</a>
-	  <a href="showclinic.php">Show Clinic</a>
+      <a href="addclinic.html">Add Clinic</a>
+      <a href="deleteclinic.html">Delete Clinic</a>
+      <a href="adddoctorclinic.html">Assign Doctor to Clinic</a>
+	  <a href="addmanagerclinic.html">Assign Manager to Clinic</a>
+	  <a href="deletedoctorclinic.html">Delete Doctor from Clinic</a>
+	  <a href="deletemanagerclinic.html">Delete Manager from Clinic</a>
+	  <a href="showclinic.html">Show Clinic</a>
     </div>
   </li>
   <li class="dropdown">    
   <a href="javascript:void(0)" class="dropbtn">Manager</a>
     <div class="dropdown-content">
-      <a href="addmanager.php">Add Manager</a>
-      <a href="deletemanager.php">Delete Manager</a>
-	  <a href="showmanager.php">Show Manager</a>
+      <a href="addmanager.html">Add Manager</a>
+      <a href="deletemanager.html">Delete Manager</a>
+	  <a href="showmanager.html">Show Manager</a>
     </div>
   </li>
    <li>  
-	<form method="post" action="mainpage.php">	
+	<form method="post" action="mainpage.html">	
 	<button type="submit" class="cancelbtn" name="logout" style="float:right;font-size:22px"><b>Log Out</b></button>
 	</form>
   </li>
@@ -70,18 +70,18 @@ function getManager(val) {
 </ul>
 </h2>
 <center><h1>REMOVE MANAGER FROM A CLINIC</h1><hr>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+<form method="post" action="<?html echo htmlspecialchars($_SERVER["html_SELF"]);?>"> 
 <label style="font-size:20px" >City:</label>
 		<select name="city" id="city-list" class="demoInputBox"  onChange="getState(this.value);">
 		<option value="">Select City</option>
-		<?php
-		include 'dbconfig.php';
+		<?html
+		include 'dbconfig.html';
 		$sql1="SELECT distinct City FROM clinic";
          $results=$conn->query($sql1); 
 		while($rs=$results->fetch_assoc()) { 
 		?>
-		<option value="<?php echo $rs["City"]; ?>"><?php echo $rs["City"]; ?></option>
-		<?php
+		<option value="<?html echo $rs["City"]; ?>"><?html echo $rs["City"]; ?></option>
+		<?html
 		}
 		?>
 		</select>
@@ -100,9 +100,9 @@ function getManager(val) {
 		
 		<button name="Submit" type="submit">Submit</button>
 	</form>
-<?php
+<?html
 session_start();
-include 'dbconfig.php';
+include 'dbconfig.html';
 if(isset($_POST['Submit']))
 {
 	$cid=$_POST['clinic'];
@@ -113,7 +113,7 @@ if(isset($_POST['Submit']))
 	if (mysqli_query($conn, $sql))
 		{
 		echo "Record deleted successfully in manager_clinic table.Refreshing....";
-		header( "Refresh:2; url=deletemanagerclinic.php");
+		header( "Refresh:2; url=deletemanagerclinic.html");
 		}
 	else
 		{
@@ -123,7 +123,7 @@ if(isset($_POST['Submit']))
 				{
 							echo "<h2>Record created successfully( CID=$cid MID=$mid )in CLINIC TABLE!!</h2>";
 							echo "Please wait...Refreshing...";
-							header( "Refresh:2; url=deletemanagerclinic.php");
+							header( "Refresh:2; url=deletemanagerclinic.html");
 
 				} 
 				else
@@ -135,7 +135,7 @@ if(isset($_POST['Submit']))
 if(isset($_POST['logout'])){
 		session_unset();
 		session_destroy();
-		header( "Refresh:1; url=alogin.php"); 
+		header( "Refresh:1; url=alogin.html"); 
 	}
 ?>			
 
