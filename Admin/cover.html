@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="main.css">
 			<div class="header">
 				<ul>
-					<li style="float:left;border-right:none"><a href="cover.php" class="logo"><img src="cal.png" width="30px" height="30px"><strong> Skylabs </strong>Appointment Booking System</a></li>
-					<li><a href="locateus.php">Locate Us</a></li>
+					<li style="float:left;border-right:none"><a href="cover.html" class="logo"><img src="cal.png" width="30px" height="30px"><strong> Skylabs </strong>Appointment Booking System</a></li>
+					<li><a href="locateus.html">Locate Us</a></li>
 					<li><a href="#home">Home</a></li>
 				</ul>
 			</div>
@@ -17,13 +17,13 @@
 			</div>	
 			<div class="footer">
 				<ul style="position:absolute;top:93%;background-color:black">
-					<li><a href="alogin.php">Admin Login</a></li>
-					<li><a href="mlogin.php">Manager Login</a></li>
+					<li><a href="alogin.html">Admin Login</a></li>
+					<li><a href="mlogin.html">Manager Login</a></li>
 				</ul>
 			</div>
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" method="post" action="cover.php">
+  <form class="modal-content animate" method="post" action="cover.html">
     <div class="imgcontainer">
 		<span style="float:left"><h2>&nbsp&nbsp&nbsp&nbspLog In</h2></span>
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -49,7 +49,7 @@
 
 <div id="id02" class="modal">
   
-  <form class="modal-content animate" action="signup.php" method="post">
+  <form class="modal-content animate" action="signup.html" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span><br>
     </div>
@@ -91,7 +91,7 @@ window.onclick = function(event) {
 }
 
 </script>
-<?php
+<?html
 session_start();
 $error=''; 
 if (isset($_POST['login'])) {
@@ -100,7 +100,7 @@ $error = "Username or Password is invalid";
 }
 else
 {
-	include 'dbconfig.php';
+	include 'dbconfig.html';
 	$username=$_POST['uname'];
 	$password=$_POST['psw'];
 
@@ -110,7 +110,7 @@ else
 	if ($num == 1) {
 		$_SESSION['username']=$rows['username'];
 		$_SESSION['user']=$rows['name'];
-		header( "Refresh:1; url=ulogin.php"); 
+		header( "Refresh:1; url=ulogin.html"); 
 	} 
 	else 
 	{
