@@ -11,35 +11,35 @@
   <li class="dropdown">    
   <a href="javascript:void(0)" class="dropbtn">Doctor</a>
     <div class="dropdown-content">
-      <a href="adddoctor.php">Add Doctor</a>
-      <a href="deletedoctor.php">Delete Doctor</a>
-      <a href="showdoctor.php">Show Doctor</a>
-	  <a href="showdoctorschedule.php">Show Doctor Schedule</a>
+      <a href="adddoctor.html">Add Doctor</a>
+      <a href="deletedoctor.html">Delete Doctor</a>
+      <a href="showdoctor.html">Show Doctor</a>
+	  <a href="showdoctorschedule.html">Show Doctor Schedule</a>
     </div>
   </li>
   
   <li class="dropdown">
   <a href="javascript:void(0)" class="dropbtn">Clinic</a>
     <div class="dropdown-content">
-      <a href="addclinic.php">Add Clinic</a>
-      <a href="deleteclinic.php">Delete Clinic</a>
-      <a href="adddoctorclinic.php">Assign Doctor to Clinic</a>
-	  <a href="addmanagerclinic.php">Assign Manager to Clinic</a>
-	  <a href="deletedoctorclinic.php">Delete Doctor from Clinic</a>
-	  <a href="deletemanagerclinic.php">Delete Manager from Clinic</a>
-	  <a href="showclinic.php">Show Clinic</a>
+      <a href="addclinic.html">Add Clinic</a>
+      <a href="deleteclinic.html">Delete Clinic</a>
+      <a href="adddoctorclinic.html">Assign Doctor to Clinic</a>
+	  <a href="addmanagerclinic.html">Assign Manager to Clinic</a>
+	  <a href="deletedoctorclinic.html">Delete Doctor from Clinic</a>
+	  <a href="deletemanagerclinic.html">Delete Manager from Clinic</a>
+	  <a href="showclinic.html">Show Clinic</a>
     </div>
   </li>
   <li class="dropdown">    
   <a href="javascript:void(0)" class="dropbtn">Manager</a>
     <div class="dropdown-content">
-      <a href="addmanager.php">Add Manager</a>
-      <a href="deletemanager.php">Delete Manager</a>
-	  <a href="showmanager.php">Show Manager</a>
+      <a href="addmanager.html">Add Manager</a>
+      <a href="deletemanager.html">Delete Manager</a>
+	  <a href="showmanager.html">Show Manager</a>
     </div>
   </li>
   <li>  
-	<form method="post" action="mainpage.php">	
+	<form method="post" action="mainpage.html">	
 	<button type="submit" class="cancelbtn" name="logout" style="float:right;font-size:22px"><b>Log Out</b></button>
 	</form>
   </li>
@@ -48,23 +48,23 @@
 </h2>
 <h1>
 <center><h1>DELETE MANAGER</h1><hr>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+<form method="post" action="<?html echo htmlspecialchars($_SERVER["html_SELF"]);?>">  
 Enter MID:<center><input type="number" name="mid"></center>
 			<button type="submit" name="Submit1">Delete by DID</button>
 			<br>---------OR---------<br>
-Select Name:<br><?php
-				require_once('dbconfig.php');
+Select Name:<br><?html
+				require_once('dbconfig.html');
 				$manager_result = $conn->query('select * from manager order by MID ASC');
 				?>
 				<center>
 				<select name="managername">
 				<option value="">---Select Name---</option>
-				<?php
+				<?html
 				if ($manager_result->num_rows > 0) {
 				while($row = $manager_result->fetch_assoc()) {
 				?>
-				<option value="<?php echo $row["MID"]; ?>"><?php echo "(MID=".$row["MID"].") ".$row["Name"]; ?></option>
-				<?php
+				<option value="<?html echo $row["MID"]; ?>"><?html echo "(MID=".$row["MID"].") ".$row["Name"]; ?></option>
+				<?html
 					}
 					}
 				?>
@@ -72,9 +72,9 @@ Select Name:<br><?php
 				
 				<button type="submit" name="Submit2">Delete by Name</button>
 </form>			
-<?php
+<?html
 session_start();
-include 'dbconfig.php';
+include 'dbconfig.html';
 if(isset($_POST['Submit1']))
 {
 	$mid=$_POST['mid'];
@@ -83,7 +83,7 @@ if(isset($_POST['Submit1']))
 	if (mysqli_query($conn, $sql))
 		{
 		echo "Record deleted successfully.Refreshing....";
-		header( "Refresh:3; url=deletemanager.php");
+		header( "Refresh:3; url=deletemanager.html");
 		}
 	else
 		{
@@ -93,7 +93,7 @@ if(isset($_POST['Submit1']))
 				{
 							echo "<h2>Record reseted in CLINIC TABLE!!</h2>";
 							echo "Please wait...Refreshing...";
-							header( "Refresh:2; url=deletemanager.php");
+							header( "Refresh:2; url=deletemanager.html");
 
 				} 
 				else
@@ -110,7 +110,7 @@ if(isset($_POST['Submit2']))
 	if (mysqli_query($conn, $sql))
 		{
 		echo "Record deleted successfully.Refreshing....";
-		header( "Refresh:3; url=deletemanager.php");
+		header( "Refresh:3; url=deletemanager.html");
 		}
 	else
 		{
@@ -121,7 +121,7 @@ if(isset($_POST['Submit2']))
 				{
 							echo "<h2>Record reseted in CLINIC TABLE!!</h2>";
 							echo "Please wait...Refreshing...";
-							header( "Refresh:2; url=deletemanager.php");
+							header( "Refresh:2; url=deletemanager.html");
 
 				} 
 				else
@@ -133,7 +133,7 @@ if(isset($_POST['Submit2']))
 if(isset($_POST['logout'])){
 		session_unset();
 		session_destroy();
-		header( "Refresh:1; url=alogin.php"); 
+		header( "Refresh:1; url=alogin.html"); 
 	}
 ?>			
 </body>
