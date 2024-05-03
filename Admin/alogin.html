@@ -2,11 +2,11 @@
 <html>
 <body style="background-image:url(doctordesk.jpg)">
 <link rel="stylesheet" href="main.css">
-	<form action="alogin.php" method="post">
+	<form action="alogin.html" method="post">
 	<div class="header">
 				<ul>
 					<li style="float:left;border-right:none"><strong> Admin Login</strong></li>
-					<li><a href="cover.php">Home</a></li>
+					<li><a href="cover.html">Home</a></li>
 				</ul>
 	</div>
 	<div class="sucontainer">
@@ -19,7 +19,7 @@
 		<div class="container" style="background-color:grey">
 			<button type="submit" name="submit" style="float:right">Log In</button>
 		</div>
-<?php 
+<?html 
 function SignIn() 
 { 
 session_start();
@@ -28,7 +28,7 @@ session_start();
 	{ 
 		$_SESSION['userName'] = 'admin'; 
 		echo "Logging you in..";
-		header( "Refresh:3; url=mainpage.php");
+		header( "Refresh:3; url=mainpage.html");
 	} 
 	else { 
 		echo "Wrong Credentials!"; 
