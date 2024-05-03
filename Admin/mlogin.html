@@ -2,11 +2,11 @@
 <html>
 <body style="background-image:url(doctordesk.jpg)">
 <link rel="stylesheet" href="main.css">
-	<form action="mlogin.php" method="post">
+	<form action="mlogin.html" method="post">
 	<div class="header">
 				<ul>
 					<li style="float:left;border-right:none"><strong> Manager Login</strong></li>
-					<li><a href="cover.php">Home</a></li>
+					<li><a href="cover.html">Home</a></li>
 				</ul>
 	</div>
 	<div class="sucontainer">
@@ -19,10 +19,10 @@
 		<div class="container" style="background-color:grey">
 			<button type="submit" name="submit" style="float:right">Log In</button>
 		</div>
-<?php 
+<?html 
 function SignIn() 
 { 
-include 'dbconfig.php';
+include 'dbconfig.html';
 
 session_start();
 if(!empty($_POST['uname']))  
@@ -35,7 +35,7 @@ if(!empty($_POST['uname']))
 		$_SESSION['mgrname']=$row['name'];
 		$_SESSION['mgrid']=$row['mid'];
 		echo "Logging you in..";
-		header( "Refresh:3; url=mgrmenu.php");
+		header( "Refresh:3; url=mgrmenu.html");
 	} 
 	else 
 	{ 
