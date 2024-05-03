@@ -6,17 +6,17 @@
 </head>
 <script type="text/javascript">//alert("sdfsd");</script>
 <body>
-<?php
-require_once("dbconfig.php");
+<?html
+require_once("dbconfig.html");
 	$query1 ="SELECT * FROM manager WHERE UPPER(region) like UPPER('%".$_POST["city"]."%')";
 	$results1 = $conn->query($query1);
 ?>
 	<option value="">Select Manager</option>
-<?php
+<?html
 	while($rs1=$results1->fetch_assoc()) {
 ?>
-	<option value="<?php echo $rs1["mid"]; ?>"><?php echo $rs1["name"]."-(Region: ".$rs1["region"].")"; ?></option>
-<?php
+	<option value="<?html echo $rs1["mid"]; ?>"><?html echo $rs1["name"]."-(Region: ".$rs1["region"].")"; ?></option>
+<?html
 
 }
 ?>
